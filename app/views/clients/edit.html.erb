@@ -1,0 +1,38 @@
+<div id="edit-client">
+	<h2>Editando <%= @client.name %></h2>
+
+	<%= form_for(@client) do |f| %>
+		<%= f.label "Nombre" %>
+		<%= f.text_field :name, class: 'form-control'%>
+		<br>
+		<%= f.label "Nif o CIF" %>
+		<%= f.text_field :nif, class: 'form-control'%>
+		<br>
+		<%= f.label "Calle" %>
+		<%= f.text_field :street, class: 'form-control'%>
+		<br>
+		<%= f.label "Numero y resto dirección" %>
+		<%= f.text_field :street_number, class: 'form-control'%>
+		<br>
+		<%= f.label "Ciudad" %>
+		<%= f.text_field :city, class: 'form-control'%>
+		<br>
+		<%= f.label "Código postal" %>
+		<%= f.text_field :postal_code, class: 'form-control'%>
+		<br>
+		<%= f.label "Telefono" %>
+		<%= f.text_field :phone, class: 'form-control'%>
+		<br>
+		<%= f.label "email" %>
+		<%= f.text_field :email, class: 'form-control'%>
+		<br>
+		<%= f.label "Persona de contacto" %>
+		<%= f.text_field :contact_person, class: 'form-control'%>
+		<br>
+		<%= f.label "Observaciones" %>
+		<%= f.text_field :observations, class: 'form-control'%>
+		<br>
+		<%= f.select(:payment_method, ['Efectivo', 'Transferencia', 'Recibo'], {include_blank: "Seleccionar metodo"}, {:class => 'browser-default'}) %>
+  		<%= f.submit "Guardar cambios" %>
+	<% end %>
+</div> 

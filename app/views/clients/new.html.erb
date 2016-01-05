@@ -1,0 +1,38 @@
+<div id="new-client">
+	<h2>Crear un nuevo cliente</h2>
+
+	<%= form_for [@client] do |f| %>
+		<%= f.label "Nombre" %>
+		<%= f.text_field :name%>
+		<br>
+		<%= f.label "Nif o CIF" %>
+		<%= f.text_field :nif%>
+		<br>
+		<%= f.label "Calle" %>
+		<%= f.text_field :street%>
+		<br>
+		<%= f.label "Numero y resto dirección" %>
+		<%= f.text_field :street_number%>
+		<br>
+		<%= f.label "Ciudad" %>
+		<%= f.text_field :city%>
+		<br>
+		<%= f.label "Código postal" %>
+		<%= f.text_field :postal_code%>
+		<br>
+		<%= f.label "Telefono" %>
+		<%= f.text_field :phone%>
+		<br>
+		<%= f.label "email" %>
+		<%= f.text_field :email%>
+		<br>
+		<%= f.label "Persona de contacto" %>
+		<%= f.text_field :contact_person%>
+		<br>
+		<%= f.label "Observaciones" %>
+		<%= f.text_field :observations%>
+		<br>
+		<%= f.select(:payment_method, ['Efectivo', 'Transferencia', 'Recibo'], {include_blank: "Seleccionar metodo"}, {:class => 'browser-default'}) %>
+  		<%= f.submit "Dar de alta" %>
+	<% end %>
+</div> 
