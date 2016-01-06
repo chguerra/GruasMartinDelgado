@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160104221927) do
+ActiveRecord::Schema.define(version: 20160106043008) do
 
   create_table "clients", force: :cascade do |t|
     t.string   "name"
@@ -28,5 +28,46 @@ ActiveRecord::Schema.define(version: 20160104221927) do
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
   end
+
+  create_table "deliveries", force: :cascade do |t|
+    t.float    "price"
+    t.date     "delivery_date"
+    t.string   "delivery_status", default: "PENDIENTE"
+    t.string   "observations"
+    t.integer  "origin"
+    t.integer  "destination"
+    t.integer  "client_id"
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
+  end
+
+  add_index "deliveries", ["client_id"], name: "index_deliveries_on_client_id"
+
+  create_table "places", force: :cascade do |t|
+    t.string   "name"
+    t.string   "address"
+    t.string   "address_details"
+    t.string   "postal_code"
+    t.string   "city"
+    t.string   "phone"
+    t.string   "contact_person"
+    t.integer  "delivery_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  add_index "places", ["delivery_id"], name: "index_places_on_delivery_id"
+
+  create_table "vehicles", force: :cascade do |t|
+    t.string   "bastidor_matricula"
+    t.string   "model"
+    t.string   "brand"
+    t.string   "observations"
+    t.integer  "delivery_id"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+  end
+
+  add_index "vehicles", ["delivery_id"], name: "index_vehicles_on_delivery_id"
 
 end

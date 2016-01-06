@@ -1,0 +1,103 @@
+<div class="new-delivery">
+  <div class="row">
+    <form class="col s12" action="/clients/<%=@client.id%>/deliveries" method="POST">
+      
+      <h4>Información del vehículo</h4>
+      <div class="row">
+        <div class="input-field col s6">
+          <input name="basmat" placeholder="Matrícula o bastidor" id="basmat" type="text" class="validate">
+          <label for="basmat">Matricula/Bastidor</label>
+        </div>
+        <div class="input-field col s6">
+          <input name="marca" placeholder="Marca y modelo" id="marca_modelo" type="text" class="validate">
+          <label for="marca_modelo">Marca y modelo</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <textarea name="observaciones" class="materialize-textarea"></textarea>
+          <label for="observaciones">Observaciones</label>
+        </div>
+      </div>
+      <h4>Recoger en:</h4>
+      <div class="row">
+        <div class="input-field col s12">
+          <input name="origenEmpresa" id="origenEmpresa" type="text">
+          <label for="origenEmpresa">Empresa</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input name="origenDireccion" id="origenDireccion" type="text">
+          <label for="origenDireccion">Dirección</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input name="origenDetalles" id="origenDetalles" type="text">
+          <label for="origenDetalles">Detalles dirección</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s6">
+          <input name="origenCP" id="origenCP" type="text">
+          <label for="origenCP">Código postal</label>
+        </div>
+        <div class="input-field col s6">
+          <input name="origenCiudad" id="origenCiudad" type="text">
+          <label for="origenCiudad">Ciudad</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s6">
+          <input name="origenTelefono" id="origenTelefono" type="text">
+          <label for="origenTelefono">Telefono</label>
+        </div>
+        <div class="input-field col s6">
+          <input name="origenContacto" id="origenContacto" type="text">
+          <label for="origenContacto">Persona de contacto</label>
+        </div>
+      </div>
+      <h4>Entregar en:</h4>
+      <div class="row">
+        <div class="input-field col s12">
+          <input name="destinoEmpresa" id="destinoEmpresa" type="text">
+          <label for="destinoEmpresa">Empresa</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input name="destinoDireccion" id="destinoDireccion" type="text">
+          <label for="destinoDireccion">Dirección</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input name="destinoDetalles" id="destinoDetalles" type="text">
+          <label for="destinoDetalles">Detalles dirección</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s6">
+          <input name="destinoCP" id="destinoCP" type="text">
+          <label for="destinoCP">Código postal</label>
+        </div>
+        <div class="input-field col s6">
+          <input name="destinoCiudad" id="destinoCiudad" type="text">
+          <label for="destinoCiudad">Ciudad</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s6">
+          <input name="destinoTelefono" id="destinoTelefono" type="text">
+          <label for="destinoTelefono">Telefono</label>
+        </div>
+        <div class="input-field col s6">
+          <input name="destinoContacto" id="destinoContacto" type="text">
+          <label for="destinoContacto">Persona de contacto</label>
+        </div>
+      </div>
+      <input type="submit" value="Guardar">
+    </form>
+  </div>
+</div>        
