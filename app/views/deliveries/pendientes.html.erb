@@ -1,0 +1,59 @@
+<div class="pendientes">
+	<table class="responsive-table">
+		<thead>
+			<tr>
+				<th>Cliente</th>
+				<th>Bast/Mat</th>
+				<th>Marca/Modelo</th>
+				<th>Origen</th>
+				<th>Destino</th>
+				<th>Precio</th>
+				<th>Precio Conductor</th>
+				<th>Asignar camion</th>
+				<th>Asignar conductor</th>
+				<th>Estado</th>
+				<th>Guardar</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% @deliveries.each do |delivery| %>
+				<tr>
+					<td><%= delivery.client.name %></td>
+					<td><%= @vehicles.find(delivery.vehicle).bastidor_matricula %></td>
+					<td><%= @vehicles.find(delivery.vehicle).brand %> - <%= @vehicles.find(delivery.vehicle).model %></td>
+					<td><%= @places.find(delivery.origin).name %> - <%= @places.find(delivery.origin).city %> - <%= @places.find(delivery.origin).postal_code %></td>
+					<td><%= @places.find(delivery.destination).name %> - <%= @places.find(delivery.destination).city %> - <%= @places.find(delivery.destination).postal_code %></td>
+					<form action="/update/pendientes/<%=delivery.id%>" method="POST">
+						<td><input	class="browser-default" type="text" name="precio"></td>
+						<td><input	class="browser-default" type="text" name="precioConductor"></td>
+						<td><select class="browser-default" name="camion">
+							<option value="1">0504FYH</option>
+							<option value="2">7636DYV</option>
+							<option value="3">7007BJP</option>
+							<option value="4">6127DGD</option>
+							<option value="5">4584FKH</option>
+							<option value="6">4605CTW</option>
+							<option value="7">BOXER</option>
+						</select></td>
+						<td><select class="browser-default" name="conductor">
+							<option value="1">Pepe</option>
+							<option value="2">Jesus</option>
+							<option value="3">David</option>
+							<option value="4">Carlos</option>
+							<option value="5">Teresa</option>
+							<option value="6">Roberto</option>
+							<option value="7">Otros</option>
+						</select></td>
+						<td><select class="browser-default" name="estado">
+							<option value="PENDIENTE">PENDIENTE</option>
+							<option value="CARGADO">CARGADO</option>
+							<option value="ENTREGADO">ENTREGADO</option>
+							<option value="CANCELADO">CANCELADO</option>
+						</select></td>
+						<td><input	type="submit" value="Guardar"></td>
+					</form>
+				</tr>
+			<% end %>
+		</tbody>
+	</table>
+</div>

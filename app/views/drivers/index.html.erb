@@ -1,0 +1,9 @@
+<div class="truck-list">
+	<ul class="collection">
+		<% @drivers.each do |driver| %>
+		<li class="collection-item"> <%= link_to(driver.name, driver_path(driver)) %> <div class="index-buttons"> <%= link_to 'Eliminar',  driver,  method: :delete, data: { confirm: '¿Estas seguro?' } %> 
+		</div> </li>
+		<% end %>
+	</ul>
+	<a class="waves-effect waves-light btn purple" href="/drivers/new"> Nuevo conductor </a>
+</div> 

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+	<title>Nueva solicitud de transporte</title>
+</head>
+<body>
+	<h2>Prueba de envio de correos con datos</h2>
+	<p>Fecha del pedido: <%= @delivery.created_at %></p>
+	<p>Cliente: <%= @client.name %></p>
+	<p>Persona de contacto: <%= @client.contact_person %></p>
+	<p>Telefono: <%= @client.phone %></p>
+	<h2>Información del vehículo</h2>
+	<p>Marca y modelo: <%= @vehicle.brand %> - <%= @vehicle.model %></p>
+	<p>Bastidor/Matricula: <%= @vehicle.bastidor_matricula %></p>
+	<p>Observaciones: <%= @vehicle.observations %></p>
+	<h2>Origen</h2>
+	<p>Empresa: <%= @origin.name %></p>
+	<p>Dirección_ <%= @origin.address %></p>
+	<p>Mas info: <%= @origin.address_details %></p>
+	<p>Ciudad / CP: <%= @origin.city %> - <%= @origin.postal_code %></p>
+	<p>Telefono: <%= @origin.phone %></p>
+	<p>Persona de contacto: <%= @origin.contact_person %></p>
+	<h2>Destino</h2>
+	<p>Empresa: <%= @destiny.name %></p>
+	<p>Dirección_ <%= @destiny.address %></p>
+	<p>Mas info: <%= @destiny.address_details %></p>
+	<p>Ciudad / CP: <%= @destiny.city %> - <%= @destiny.postal_code %></p>
+	<p>Telefono: <%= @destiny.phone %></p>
+	<p>Persona de contacto: <%= @destiny.contact_person %></p>
+</body>
+</html>

@@ -1,7 +1,25 @@
 <div class="wrapper">
 	<div class="notifications">
-		<h2>Notificaciones</h2>
+		<h4>Notificaciones</h4>
 		<br>
-		<p>No hay notificaciones</p>
+		<% if @deliveries.count > 0 %>
+			<p> Tienes <%= @deliveries.count %> solicitudes pendientes </p>
+			<a href="/pendientes">Ver solicitudes</a>
+		<% else %>
+			<p>No hay notificaciones</p>
+		<% end %>
+	</div>
+	<div class="menu">
+	<h5>Clientes</h5>
+		<a class="waves-effect waves-light btn green" href="/clients"> Ver clientes </a>
+		<a class="waves-effect waves-light btn green" href="/clients/new"> Nuevo cliente </a>
+	<h5>Camiones</h5>
+		<a class="waves-effect waves-light btn blue" href="/trucks"> Ver camiones </a>
+		<a class="waves-effect waves-light btn blue" href="/trucks/new"> Nuevo camion </a>
+		<a class="waves-effect waves-light btn blue" href="/ver_cargas"> Ver cargas </a>
+	<h5>Conductores</h5>
+		<a class="waves-effect waves-light btn purple" href="/drivers"> Ver conductores </a>
+		<a class="waves-effect waves-light btn purple" href="/drivers/new"> Nuevo conductor </a>
+		
 	</div>
 </div>

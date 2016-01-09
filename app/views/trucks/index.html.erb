@@ -1,0 +1,8 @@
+<div class="truck-list">
+	<ul class="collection">
+		<% @trucks.each do |truck| %>
+		<li class="collection-item"> <%= link_to(truck.matricula, truck_path(truck)) %> <div class="index-buttons"> <%= link_to 'Eliminar',  truck,  method: :delete, data: { confirm: '¿Estas seguro?' } %> 
+		</div> </li>
+		<% end %>
+	</ul>
+</div> 

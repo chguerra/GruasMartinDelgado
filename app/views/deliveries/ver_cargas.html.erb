@@ -1,0 +1,12 @@
+<div class="cargas">
+	<% @trucks.each do |truck| %>
+		<ul class="collection with-header">	
+			<li class="collection-header"><h6><%= truck.matricula %> - <%= truck.marca %> - <%= truck.modelo %></h6></li>
+				<% @deliveries.each do |delivery| %>
+					<% if delivery.truck == truck.id %>
+						<li class="collection-item"><%= @vehicles.find_by(delivery_id: delivery.id).bastidor_matricula %> - <%= @places.find_by(delivery_id: delivery.origin).city %> a <%= @places.find_by(delivery_id: delivery.destination).city %> - <%= delivery.client.name %></li>
+					<% end %>
+				<% end %>
+		</ul>
+	<% end %>
+</div>

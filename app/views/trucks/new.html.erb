@@ -1,0 +1,15 @@
+<div class="new-truck" style="width:60%;margin: 0 auto;">
+	<h2>Dar de alta un camíon</h2>
+	<%= form_for @truck do |f| %>
+		<%= f.label "Matricula" %>
+		<%= f.text_field :matricula%>
+		<br>
+		<%= f.label "Modelo" %>
+		<%= f.text_field :modelo%>
+		<br>
+		<%= f.label "Marca" %>
+		<%= f.text_field :marca%>
+		<br>
+	<%= f.submit "Dar de alta" %>
+	<% end %>
+</div>

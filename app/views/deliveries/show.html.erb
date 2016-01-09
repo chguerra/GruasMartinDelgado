@@ -1,0 +1,61 @@
+<div class="delivery">
+	<h5>Solicitud para cliente: <%= @client.name %></h5>
+	<h6>Informacion del vehículo</h6>
+	<div class="row">
+        <div class="col s12 m12">
+          <div class="card blue-grey darken-1">
+            <div class="card-content white-text">
+              <span class="card-title"><%= @vehicle.brand %> - <%= @vehicle.model %></span>
+              <p>Bastidor o Matricula: <%= @vehicle.bastidor_matricula %></p>
+              <p>Observaciones: <%= @vehicle.observations %></p>
+            </div>
+          </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s12 m12">
+          <div class="card blue-grey darken-1">
+            <div class="card-content white-text">
+              <span class="card-title">Origen</span>
+              	<p>Empresa: <%= @origin.name %></p>
+              	<p>Direccion: <%= @origin.address %></p>
+              	<p>Detalles dirección: <%= @origin.address_details %></p>
+              	<p>Ciudad: <%= @origin.city %> - Código postal: <%= @origin.postal_code %></p>
+              	<p>Telefono contacto: <%= @origin.phone %></p>
+              	<p>Persona de contacto: <%= @origin.contact_person %></p>
+            </div>
+          </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s12 m12">
+          <div class="card blue-grey darken-1">
+            <div class="card-content white-text">
+              <span class="card-title">Destino</span>
+              	<p>Empresa: <%= @destiny.name %></p>
+              	<p>Direccion: <%= @destiny.address %></p>
+              	<p>Detalles dirección: <%= @destiny.address_details %></p>
+              	<p>Ciudad: <%= @destiny.city %> - Código postal: <%= @destiny.postal_code %></p>
+              	<p>Telefono contacto: <%= @destiny.phone %></p>
+              	<p>Persona de contacto: <%= @destiny.contact_person %></p>
+            </div>
+          </div>
+        </div>
+    </div>
+    <% if(@delivery.delivery_status != "PENDIENTE") %>
+      <div class="row">
+          <div class="col s12 m12">
+            <div class="card blue-grey darken-1">
+              <div class="card-content white-text">
+                <span class="card-title">Informacion adicional</span>
+                  <p>Precio: <%= @delivery.price %></p>
+                  <p>Precio conductor: <%= @delivery.driver_price %></p>
+                  <p>Camion asignado: <%= @truck.find(@delivery.truck).matricula %></p>
+                  <p>Conductor asignado: <%= @driver.find(@delivery.driver).name %></p>
+                  <p>Estado: <%= @delivery.delivery_status %> </p>
+              </div>
+            </div>
+          </div>
+      </div>
+    <% end %>
+</div>

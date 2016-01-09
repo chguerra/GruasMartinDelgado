@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160106043008) do
+ActiveRecord::Schema.define(version: 20160109190510) do
 
   create_table "clients", force: :cascade do |t|
     t.string   "name"
@@ -39,9 +39,22 @@ ActiveRecord::Schema.define(version: 20160106043008) do
     t.integer  "client_id"
     t.datetime "created_at",                            null: false
     t.datetime "updated_at",                            null: false
+    t.integer  "vehicle"
+    t.integer  "driver"
+    t.integer  "truck"
+    t.float    "driver_price"
   end
 
   add_index "deliveries", ["client_id"], name: "index_deliveries_on_client_id"
+
+  create_table "drivers", force: :cascade do |t|
+    t.string   "name"
+    t.string   "phone"
+    t.string   "address"
+    t.string   "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "places", force: :cascade do |t|
     t.string   "name"
@@ -57,6 +70,14 @@ ActiveRecord::Schema.define(version: 20160106043008) do
   end
 
   add_index "places", ["delivery_id"], name: "index_places_on_delivery_id"
+
+  create_table "trucks", force: :cascade do |t|
+    t.string   "matricula"
+    t.string   "modelo"
+    t.string   "marca"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "vehicles", force: :cascade do |t|
     t.string   "bastidor_matricula"
