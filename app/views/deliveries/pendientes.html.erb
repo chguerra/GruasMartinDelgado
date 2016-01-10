@@ -23,7 +23,7 @@
 					<td><%= @vehicles.find(delivery.vehicle).brand %> - <%= @vehicles.find(delivery.vehicle).model %></td>
 					<td><%= @places.find(delivery.origin).name %> - <%= @places.find(delivery.origin).city %> - <%= @places.find(delivery.origin).postal_code %></td>
 					<td><%= @places.find(delivery.destination).name %> - <%= @places.find(delivery.destination).city %> - <%= @places.find(delivery.destination).postal_code %></td>
-					<form action="/update/pendientes/<%=delivery.id%>" method="POST">
+					<form name="<%=delivery.id%>" action="/update/pendientes/<%=delivery.id%>" method="POST">
 						<td><input	class="browser-default" type="text" name="precio"></td>
 						<td><input	class="browser-default" type="text" name="precioConductor"></td>
 						<td><select class="browser-default" name="camion">
