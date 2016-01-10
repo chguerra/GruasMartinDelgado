@@ -9,7 +9,7 @@ class NewJob < ApplicationMailer
 		@origin = origin
 		@destiny = destiny
 
-		mail(:to => 'chguerra@gmail.com',
+		mail(:to => 'asistenciamartindelgado@gmail.com',
 			:subject => 'Nueva solicitud de transporte')
 	end
 end
