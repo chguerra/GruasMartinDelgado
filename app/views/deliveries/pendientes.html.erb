@@ -23,8 +23,9 @@
 					<td><%= @vehicles.find(delivery.vehicle).brand %> - <%= @vehicles.find(delivery.vehicle).model %></td>
 					<td><%= @places.find(delivery.origin).name %> - <%= @places.find(delivery.origin).city %> - <%= @places.find(delivery.origin).postal_code %></td>
 					<td><%= @places.find(delivery.destination).name %> - <%= @places.find(delivery.destination).city %> - <%= @places.find(delivery.destination).postal_code %></td>
-					<form name="<%=delivery.id%>" action="/update/pendientes/<%=delivery.id%>" method="POST">
-						<td><input	class="browser-default" type="text" name="precio"></td>
+					
+						<td><form name="<%=delivery.id%>" action="/update/pendientes/<%=delivery.id%>" method="POST">
+						<input	class="browser-default" type="text" name="precio"></td>
 						<td><input	class="browser-default" type="text" name="precioConductor"></td>
 						<td><select class="browser-default" name="camion">
 							<option value="1">0504FYH</option>
@@ -50,8 +51,8 @@
 							<option value="ENTREGADO">ENTREGADO</option>
 							<option value="CANCELADO">CANCELADO</option>
 						</select></td>
-						<td><input	type="submit" name="commit<%=delivery.id%>" value="Guardar"></td>
-					</form>
+						<td><input	type="submit" name="commit<%=delivery.id%>" value="Guardar"></form></td>
+					
 				</tr>
 			<% end %>
 		</tbody>
