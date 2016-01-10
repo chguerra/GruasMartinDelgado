@@ -32,6 +32,20 @@ class DeliveriesController < ApplicationController
 
 	end
 
+	def edit
+		@client = Client.find(params[:client_id])
+		@delivery = Delivery.find(params[:id])
+	end
+
+	def update
+		@delivery = Delivery.find(params[:id])
+		@delivery.update(delivery_params)
+		if delivery_params[:delivery_status] == 'ENTREGADO'
+			@delivery.update(delivery_date: Date.today)
+		end
+		redirect_to(client_delivery_path(params[:client_id], params[:id]))
+	end
+
 	def pendientes
 		@deliveries = Delivery.where(delivery_status: "PENDIENTE")
 		@vehicles = Vehicle.all
@@ -49,5 +63,11 @@ class DeliveriesController < ApplicationController
 		@deliveries = Delivery.where(delivery_status: 'CARGADO')
 		@places = Place.all
 		@vehicles = Vehicle.all
+	end
+
+	private
+
+	def delivery_params
+		params.require(:delivery).permit(:price, :driver_price, :truck, :driver, :delivery_status)
 	end
 end
