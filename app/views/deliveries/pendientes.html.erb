@@ -7,12 +7,7 @@
 				<th>Marca/Modelo</th>
 				<th>Origen</th>
 				<th>Destino</th>
-				<th>Precio</th>
-				<th>Precio Conductor</th>
-				<th>Asignar camion</th>
-				<th>Asignar conductor</th>
-				<th>Estado</th>
-				<th>Guardar</th>
+				<th><div class="row"><div class="input-field col s2">Precio</div><div class="input-field col s2">Precio Conductor</div><div class="input-field col s2">Asignar camion</div><div class="input-field col s2">Asignar conductor</div><div class="input-field col s2">Estado</div><div class="input-field col s2">Guardar</div></div></th>
 			</tr>
 		</thead>
 		<tbody>
@@ -25,9 +20,15 @@
 					<td><%= @places.find(delivery.destination).name %> - <%= @places.find(delivery.destination).city %> - <%= @places.find(delivery.destination).postal_code %></td>
 					
 						<td><form name="<%=delivery.id%>" action="/update/pendientes/<%=delivery.id%>" method="POST">
-						<input	class="browser-default" type="text" name="precio"></td>
-						<td><input	class="browser-default" type="text" name="precioConductor"></td>
-						<td><select class="browser-default" name="camion">
+						<div class="row">
+						<div class="input-field col s2">
+						<input	class="browser-default" type="text" name="precio">
+						</div>
+						<div class="input-field col s2">
+						<input	class="browser-default" type="text" name="precioConductor">
+						</div>
+						<div class="input-field col s2">
+						<select class="browser-default" name="camion">
 							<option value="1">0504FYH</option>
 							<option value="2">7636DYV</option>
 							<option value="3">7007BJP</option>
@@ -35,8 +36,10 @@
 							<option value="5">4584FKH</option>
 							<option value="6">4605CTW</option>
 							<option value="7">BOXER</option>
-						</select></td>
-						<td><select class="browser-default" name="conductor">
+						</select>
+						</div>
+						<div class="input-field col s2">	
+						<select class="browser-default" name="conductor">
 							<option value="1">Pepe</option>
 							<option value="2">Jesus</option>
 							<option value="3">David</option>
@@ -44,14 +47,22 @@
 							<option value="5">Teresa</option>
 							<option value="6">Roberto</option>
 							<option value="7">Otros</option>
-						</select></td>
-						<td><select class="browser-default" name="estado">
+						</select>
+						</div>
+						<div class="input-field col s2">
+						<select class="browser-default" name="estado">
 							<option value="PENDIENTE">PENDIENTE</option>
 							<option value="CARGADO">CARGADO</option>
 							<option value="ENTREGADO">ENTREGADO</option>
 							<option value="CANCELADO">CANCELADO</option>
-						</select></td>
-						<td><input	type="submit" name="commit<%=delivery.id%>" value="Guardar"></form></td>
+						</select>
+						</div>
+						<div class="input-field col s2">
+						<input	type="submit" name="commit<%=delivery.id%>" value="Guardar">
+						</div>
+						</form>
+						</div>
+						</td>
 					
 				</tr>
 			<% end %>
