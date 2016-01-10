@@ -7,8 +7,10 @@ Rails.application.routes.draw do
 
   get "/ver_cargas" => "deliveries#ver_cargas"
 
+  get "/transportes" => "deliveries#index"
+
   resources :clients, only: [:update, :edit, :show, :new, :index, :create, :destroy] do
-  	resources :deliveries, only: [ :update, :edit, :show, :new, :index, :create, :destroy]
+  	resources :deliveries, only: [ :update, :edit, :show, :new, :create, :destroy]
   end
 
   resources :trucks, only: [:update, :edit, :show, :new, :index, :create, :destroy]

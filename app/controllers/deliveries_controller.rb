@@ -14,6 +14,11 @@ class DeliveriesController < ApplicationController
 		@driver = Driver.all
 	end
 
+	def index
+		@deliveries = Delivery.all.limit(15)
+		@vehicles = Vehicle.all
+		@places = Place.all
+	end
 
 	def create
 		@client = Client.find(params[:client_id])
