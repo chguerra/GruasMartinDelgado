@@ -14,6 +14,7 @@ class DeliveriesController < ApplicationController
 		@driver = Driver.all
 	end
 
+
 	def create
 		@client = Client.find(params[:client_id])
 		@delivery = @client.deliveries.new(observations: params[:observaciones])

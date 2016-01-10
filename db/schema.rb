@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160109190510) do
+ActiveRecord::Schema.define(version: 20160110034848) do
 
   create_table "clients", force: :cascade do |t|
     t.string   "name"
@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(version: 20160109190510) do
     t.integer  "driver"
     t.integer  "truck"
     t.float    "driver_price"
+    t.string   "filepath"
   end
 
   add_index "deliveries", ["client_id"], name: "index_deliveries_on_client_id"
