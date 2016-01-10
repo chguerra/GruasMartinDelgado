@@ -9,6 +9,8 @@ Rails.application.routes.draw do
 
   get "/transportes" => "deliveries#index"
 
+  post "/customreport" => "site#customreport"
+
   resources :clients, only: [:update, :edit, :show, :new, :index, :create, :destroy] do
   	resources :deliveries, only: [ :update, :edit, :show, :new, :create, :destroy]
   end

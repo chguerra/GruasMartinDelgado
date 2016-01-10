@@ -22,5 +22,61 @@
 		<a class="waves-effect waves-light btn purple" href="/drivers/new"> Nuevo conductor </a>
 	<h5>Transportes</h5>
 		<a class="waves-effect waves-light btn red" href="/transportes">Solicitudes</a> 
+	
+	</div>
+</div>
+<div class="reports">
+	<h5>Busqueda</h5>
+	<div class="row">
+		<form action="/customreport" method="POST">
+			<div class="input-field col s2">
+				<p>Desde</p>
+				<input name="date_from" type="date" class="datepicker">
+			</div>
+			<div class="input-field col s2">
+				<p>hasta</p>
+				<input name="date_to" type="date" class="datepicker">
+			</div>
+			<div class="input-field col s2">
+    			<p>Estado</p>
+    			<select name="delivery_state" class="browser-default">
+			      <option value="TODOS">Cualquiera</option>
+			      <option value="PENDIENTE">PENDIENTE</option>
+			      <option value="CARGADO">CARGADO</option>
+			      <option value="ENTREGADO">ENTREGADO</option>
+			      <option value="CANCELADO">CANCELADO</option>
+    			</select>
+  			</div>
+  			<div class="input-field col s2">
+    			<p>Cliente</p>
+    			<select name="client" class="browser-default">
+			      <option value="TODOS">Cualquiera</option>
+			      <% @clients.each do |client| %>
+			      	<option value="<%=client.id%>"><%=client.name%></option>
+			      <% end %>
+    			</select>
+  			</div>
+  			<div class="input-field col s2">
+    			<p>Camion</p>
+    			<select name="camion" class="browser-default">
+			      <option value="TODOS">Cualquiera</option>
+			      <% @trucks.each do |truck| %>
+			      	<option value="<%=truck.id%>"><%=truck.matricula%></option>
+			      <% end %>
+    			</select>
+  			</div>
+  			<div class="input-field col s2">
+    			<p>Conductor</p>
+    			<select name="conductor" class="browser-default">
+			      <option value="TODOS">Cualquiera</option>
+			      <% @drivers.each do |driver| %>
+			      	<option value="<%=driver.id%>"><%=driver.name%></option>
+			      <% end %>
+    			</select>
+  			</div>
+  			<div class="submitbutton">
+				<input type="submit" value="Buscar">
+			</div>
+		</form>
 	</div>
 </div>
