@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160111023646) do
+ActiveRecord::Schema.define(version: 20160111161426) do
 
   create_table "clients", force: :cascade do |t|
     t.string   "name"
@@ -48,6 +48,9 @@ ActiveRecord::Schema.define(version: 20160111023646) do
     t.string   "document_content_type"
     t.integer  "document_file_size"
     t.datetime "document_updated_at"
+    t.string   "payment_method"
+    t.date     "payment_date"
+    t.string   "payment_status",        default: "PENDIENTE"
   end
 
   add_index "deliveries", ["client_id"], name: "index_deliveries_on_client_id"

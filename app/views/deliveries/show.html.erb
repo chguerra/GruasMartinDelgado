@@ -1,5 +1,5 @@
 <div class="delivery">
-	<h5>Solicitud para cliente: <%= @client.name %></h5>
+	<h5>Solicitud para cliente: <%= @client.name %> - CONFIRMADA</h5>
 	<h6>Informacion del vehículo - <a href="<%= @delivery.document.url(:original, false) %>"> Descarga autorizacion </a></h6>
 	<div class="row">
         <div class="col s12 m12">
@@ -57,5 +57,8 @@
             </div>
           </div>
       </div>
+      <div class="card-action">
+             <%= link_to('Editar', edit_client_delivery_path(@delivery.client.id, @delivery.id)) %>
+            </div>
     <% end %>
 </div>

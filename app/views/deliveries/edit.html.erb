@@ -12,10 +12,22 @@
 		<%= f.select(:truck, [['0504 FYH',1], ['7636 DYV',2], ['7007 BJP',3], ['6127 DGD',4], ['4584 FKH',5], ['4605 CTW',6], ['SIN MATRICULA', 7]], {include_blank: "Seleccionar camión"}, {:class => 'browser-default'}) %>
 		<br>
 		<p>Conductor</p>
-		<%= f.select(:driver, [['PEPE',1], ['JESUS',2], ['DAVID',3], ['CARLOS',4], ['TERESA',5], ['ROBERTO',6], ['OTROS', 7]], {include_blank: "Seleccionar camión"}, {:class => 'browser-default'}) %>
+		<%= f.select(:driver, [['PEPE',1], ['JESUS',2], ['DAVID',3], ['CARLOS',4], ['TERESA',5], ['ROBERTO',6], ['OTROS', 7]], {include_blank: "Seleccionar conductor"}, {:class => 'browser-default'}) %>
 		<br>
 		<p>Estado</p>
-		<%= f.select(:delivery_status, ['PENDIENTE','CARGADO', 'ENTREGADO', 'CANCELADO'], {include_blank: "Seleccionar camión"}, {:class => 'browser-default'}) %>
+		<%= f.select(:delivery_status, ['PENDIENTE','CARGADO', 'ENTREGADO', 'CANCELADO'], {include_blank: "Seleccionar estado"}, {:class => 'browser-default'}) %>
+		<%= f.label "Fecha de entrega" %>
+		<%= f.date_field :delivery_date, class: 'browser-default'%>
+		<br>
+		<%= f.label "Método de pago" %>
+		<%= f.select(:payment_method, ['Efectivo', 'Transferencia', 'Recibo'], {include_blank: "Seleccionar metodo de pago"}, {:class => 'browser-default'}) %>
+		<br>
+		<%= f.label "Estado del pago" %>
+		<%= f.select(:payment_status, ['PENDIENTE','PAGADO'], {include_blank: "Selecionar estado"}, {:class => 'browser-default'}) %>
+		<br>
+		<%= f.label "Fecha de pago" %>
+		<%= f.date_field :payment_date, class: 'browser-default' %>
+		<br>
   		<%= f.submit "Guardar cambios" %>
   	<% end %>
 </div>

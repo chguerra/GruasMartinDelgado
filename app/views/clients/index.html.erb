@@ -1,7 +1,7 @@
 <div class="client-list">
 	<ul class="collection">
 		<% @clients.each do |client| %>
-		<li class="collection-item"> <%= link_to(client.name, client_path(client)) %> <div class="index-buttons"> <%= link_to 'Eliminar',  client,  method: :delete, data: { confirm: '¿Estas seguro?' } %> <%= link_to('Editar', edit_client_path(client)) %>
+		<li class="collection-item"> <%= link_to(client.name, client_path(client)) %> <div class="index-buttons"> <%= link_to 'Eliminar',  client,  method: :delete, data: { confirm: '¿Estas seguro?' } %> <%= link_to('Editar', edit_client_path(client)) %> - <%= link_to('Nueva solicitud', new_client_delivery_path(client)) %>
 		</div> </li>
 		<% end %>
 	</ul>

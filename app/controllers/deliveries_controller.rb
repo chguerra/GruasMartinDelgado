@@ -45,9 +45,6 @@ class DeliveriesController < ApplicationController
 	def update
 		@delivery = Delivery.find(params[:id])
 		@delivery.update(delivery_params)
-		if delivery_params[:delivery_status] == 'ENTREGADO'
-			@delivery.update(delivery_date: Date.today)
-		end
 		redirect_to(client_delivery_path(params[:client_id], params[:id]))
 	end
 
@@ -73,6 +70,6 @@ class DeliveriesController < ApplicationController
 	private
 
 	def delivery_params
-		params.require(:delivery).permit(:price, :driver_price, :truck, :driver, :delivery_status)
+		params.require(:delivery).permit(:price, :driver_price, :truck, :driver, :delivery_status, :delivery_date)
 	end
 end

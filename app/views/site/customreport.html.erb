@@ -1,4 +1,9 @@
 <div class="customreport">
+	<p>
+	<% @cabecera.each do |t| %>
+	<%= t %>
+	<% end %>
+	</p>
 	<table class="responsive-table">
 		<thead>
 			<tr>
@@ -8,9 +13,14 @@
 				<th>Origen</th>
 				<th>Destino</th>
 				<th>Precio</th>
+				<th>Estado</th>
+				<th>Fecha</th>
+				<th>Metodo de pago</th>
+				<th>Estado del pago</th>
 			</tr>
 		</thead>
 		<tbody>
+			<% total = 0 %>
 			<% @deliveriesfinal.each do |delivery| %>
 				<tr>
 					<td><%= delivery.client.name %></td>
@@ -19,8 +29,21 @@
 					<td><%= @places.find(delivery.origin).name %> - <%= @places.find(delivery.origin).address %> - <%= @places.find(delivery.origin).city %></td>
 					<td><%= @places.find(delivery.destination).name %> - <%= @places.find(delivery.destination).address %> - <%= @places.find(delivery.destination).city %></td>
 					<td><%= delivery.price %>€</td>
+					<td><%= delivery.delivery_status %></td>
+					<td><% if delivery.delivery_status == "ENTREGADO" %>
+							<%= delivery.delivery_date %>
+						<% end %>
+					</td>
+					<td><%= delivery.payment_method %></td>
+					<td><%= delivery.payment_status %></td>
 				</tr>
+				<% if delivery.price != nil %>
+				<% total = total + delivery.price %>
+				<% end %>
 			<% end %>
 		</tbody>
 	</table>
+	<div class="totales">
+		<p>Total: <%= total %>€</p>
+	</div>
 </div>
