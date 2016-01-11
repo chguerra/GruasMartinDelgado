@@ -37,4 +37,29 @@ class SiteController < ApplicationController
 		@vehicles = Vehicle.all
 		@places = Place.all
 	end
+
+	def deliveredreport
+		@deliveriesfinal = []
+		deliveries = Delivery.where(['DATE(delivery_date) >= ? AND DATE(delivery_date) <=?', Time.parse(params[:date_deliver]).beginning_of_day, Time.parse(params[:date_deliver]).end_of_day] )
+		
+		if params[:client] != "TODOS"
+			deliveriesclient = deliveries.where(['client_id = ?', params[:client]])
+		else
+			deliveriesclient = deliveries
+		end
+
+		if params[:camion] != "TODOS"
+			deliveriestruck = deliveriesclient.where(['truck = ?', params[:camion]])
+		else
+			deliveriestruck = deliveriesclient
+		end
+
+		if params[:conductor] != "TODOS"
+			@deliveriesfinal = deliveriestruck.where(['driver = ?', params[:conductor]])
+		else
+			@deliveriesfinal = deliveriestruck
+		end
+		@vehicles = Vehicle.all
+		@places = Place.all
+	end
 end

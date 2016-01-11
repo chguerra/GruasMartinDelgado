@@ -26,7 +26,7 @@
 	</div>
 </div>
 <div class="reports">
-	<h5>Busqueda</h5>
+	<h5>Busqueda por fecha de creación</h5>
 	<div class="row">
 		<form action="/customreport" method="POST">
 			<div class="input-field col s2">
@@ -47,6 +47,48 @@
 			      <option value="CANCELADO">CANCELADO</option>
     			</select>
   			</div>
+  			<div class="input-field col s2">
+    			<p>Cliente</p>
+    			<select name="client" class="browser-default">
+			      <option value="TODOS">Cualquiera</option>
+			      <% @clients.each do |client| %>
+			      	<option value="<%=client.id%>"><%=client.name%></option>
+			      <% end %>
+    			</select>
+  			</div>
+  			<div class="input-field col s2">
+    			<p>Camion</p>
+    			<select name="camion" class="browser-default">
+			      <option value="TODOS">Cualquiera</option>
+			      <% @trucks.each do |truck| %>
+			      	<option value="<%=truck.id%>"><%=truck.matricula%></option>
+			      <% end %>
+    			</select>
+  			</div>
+  			<div class="input-field col s2">
+    			<p>Conductor</p>
+    			<select name="conductor" class="browser-default">
+			      <option value="TODOS">Cualquiera</option>
+			      <% @drivers.each do |driver| %>
+			      	<option value="<%=driver.id%>"><%=driver.name%></option>
+			      <% end %>
+    			</select>
+  			</div>
+  			<div class="submitbutton">
+				<input type="submit" value="Buscar">
+			</div>
+		</form>
+	</div>
+</div>
+
+<div class="reports">
+	<h5>Busqueda por fecha de entrega</h5>
+	<div class="row">
+		<form action="/deliveredreport" method="POST">
+			<div class="input-field col s2">
+				<p>Fecha de entrega</p>
+				<input name="date_deliver" type="date" class="datepicker">
+			</div>
   			<div class="input-field col s2">
     			<p>Cliente</p>
     			<select name="client" class="browser-default">
