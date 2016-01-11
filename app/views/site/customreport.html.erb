@@ -1,4 +1,4 @@
-<div class="customreport">
+<div id="dvData" class="customreport">
 	<p>
 	<% @cabecera.each do |t| %>
 	<%= t %>
@@ -12,6 +12,7 @@
 				<th>Bast/Mat</th>
 				<th>Origen</th>
 				<th>Destino</th>
+				<th>Observaciones</th>
 				<th>Precio</th>
 				<th>Estado</th>
 				<th>Fecha</th>
@@ -26,8 +27,9 @@
 					<td><%= delivery.client.name %></td>
 					<td><%= @vehicles.find(delivery.vehicle).brand %> -<%= @vehicles.find(delivery.vehicle).model %></td>
 					<td><%= @vehicles.find(delivery.vehicle).bastidor_matricula %></td>
-					<td><%= @places.find(delivery.origin).name %> - <%= @places.find(delivery.origin).address %> - <%= @places.find(delivery.origin).city %></td>
-					<td><%= @places.find(delivery.destination).name %> - <%= @places.find(delivery.destination).address %> - <%= @places.find(delivery.destination).city %></td>
+					<td><%= @places.find(delivery.origin).name %> - <%= @places.find(delivery.origin).address %> - <%= @places.find(delivery.origin).city %> - <%= @places.find(delivery.origin).contact_person %></td>
+					<td><%= @places.find(delivery.destination).name %> - <%= @places.find(delivery.destination).address %> - <%= @places.find(delivery.destination).city %> - <%= @places.find(delivery.destination).contact_person %></td>
+					<td><%= delivery.observations %></td>
 					<td><%= delivery.price %>€</td>
 					<td><%= delivery.delivery_status %></td>
 					<td><% if delivery.delivery_status == "ENTREGADO" %>
@@ -47,3 +49,4 @@
 		<p>Total: <%= total %>€</p>
 	</div>
 </div>
+<button id="btnExport">Exportar a excel</button>

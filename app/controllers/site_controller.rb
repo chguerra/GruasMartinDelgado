@@ -67,7 +67,6 @@ class SiteController < ApplicationController
 		end
 
 
-
 		@vehicles = Vehicle.all
 		@places = Place.all
 	end
