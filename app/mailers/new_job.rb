@@ -9,6 +9,8 @@ class NewJob < ApplicationMailer
 		@origin = origin
 		@destiny = destiny
 
+		attachments.inline[@delivery.document.original_filename] = File.read(@delivery.document.path)
+
 		mail(:to => 'asistenciamartindelgado@gmail.com',
 			:subject => 'Nueva solicitud de transporte')
 	end

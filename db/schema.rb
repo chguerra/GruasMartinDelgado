@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160110034848) do
+ActiveRecord::Schema.define(version: 20160111023646) do
 
   create_table "clients", force: :cascade do |t|
     t.string   "name"
@@ -32,18 +32,22 @@ ActiveRecord::Schema.define(version: 20160110034848) do
   create_table "deliveries", force: :cascade do |t|
     t.float    "price"
     t.date     "delivery_date"
-    t.string   "delivery_status", default: "PENDIENTE"
+    t.string   "delivery_status",       default: "PENDIENTE"
     t.string   "observations"
     t.integer  "origin"
     t.integer  "destination"
     t.integer  "client_id"
-    t.datetime "created_at",                            null: false
-    t.datetime "updated_at",                            null: false
+    t.datetime "created_at",                                  null: false
+    t.datetime "updated_at",                                  null: false
     t.integer  "vehicle"
     t.integer  "driver"
     t.integer  "truck"
     t.float    "driver_price"
     t.string   "filepath"
+    t.string   "document_file_name"
+    t.string   "document_content_type"
+    t.integer  "document_file_size"
+    t.datetime "document_updated_at"
   end
 
   add_index "deliveries", ["client_id"], name: "index_deliveries_on_client_id"
