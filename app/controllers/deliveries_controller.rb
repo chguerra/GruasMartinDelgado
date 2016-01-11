@@ -4,6 +4,12 @@ class DeliveriesController < ApplicationController
 		@client = Client.find(params[:client_id])
 	end
 
+	def destroy
+		@delivery = Delivery.find(params[:id])
+		@delivery.destroy
+		redirect_to("/")
+	end
+
 	def show
 		@client = Client.find(params[:client_id])
 		@delivery = Delivery.find(params[:id])

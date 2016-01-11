@@ -1,7 +1,7 @@
 <div class="deliveries">
 	<ul class="collection with-header">	
 				<% @deliveries.each do |delivery| %>
-						<li class="collection-item"><%= @vehicles.find_by(delivery_id: delivery.id).bastidor_matricula %> - <%= @vehicles.find_by(delivery_id: delivery.id).brand %> - <%= @vehicles.find_by(delivery_id: delivery.id).model %> - <%= @places.find(delivery.origin).city %> a <%= @places.find(delivery.destination).city %> - <%= delivery.client.name %> <%= link_to('Editar', edit_client_delivery_path(delivery.client.id, delivery.id)) %> - <%= link_to('Mostrar', client_delivery_path(delivery.client.id, delivery.id)) %> </li>
+						<li class="collection-item"><%= @vehicles.find_by(delivery_id: delivery.id).bastidor_matricula %> - <%= @vehicles.find_by(delivery_id: delivery.id).brand %> - <%= @vehicles.find_by(delivery_id: delivery.id).model %> - <%= @places.find(delivery.origin).city %> a <%= @places.find(delivery.destination).city %> - <%= delivery.client.name %> <%= link_to('Editar', edit_client_delivery_path(delivery.client.id, delivery.id)) %> - <%= link_to('Mostrar', client_delivery_path(delivery.client.id, delivery.id)) %> <%= link_to 'Eliminar',  client_delivery_path(delivery.client.id, delivery.id) ,  method: :delete, data: { confirm: '¿Estas seguro?' } %></li>
 			<% end %>
 	</ul>
 </div>
