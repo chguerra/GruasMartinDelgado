@@ -24,11 +24,11 @@
 			<% total = 0 %>
 			<% @deliveriesfinal.each do |delivery| %>
 				<tr>
-					<td><%= delivery.client.name %></td>
+					<td><%= delivery.client.name %> - <%= delivery.client.nif %></td>
 					<td><%= @vehicles.find(delivery.vehicle).brand %> -<%= @vehicles.find(delivery.vehicle).model %></td>
 					<td><%= @vehicles.find(delivery.vehicle).bastidor_matricula %></td>
-					<td><%= @places.find(delivery.origin).name %> - <%= @places.find(delivery.origin).address %> - <%= @places.find(delivery.origin).city %> - <%= @places.find(delivery.origin).contact_person %></td>
-					<td><%= @places.find(delivery.destination).name %> - <%= @places.find(delivery.destination).address %> - <%= @places.find(delivery.destination).city %> - <%= @places.find(delivery.destination).contact_person %></td>
+					<td><%= @places.find(delivery.origin).name %> - <%= @places.find(delivery.origin).address %> - <%= @places.find(delivery.origin).address_details %> - <%= @places.find(delivery.origin).city %> - <%= @places.find(delivery.origin).contact_person %></td>
+					<td><%= @places.find(delivery.destination).name %> - <%= @places.find(delivery.destination).address %> - <%= @places.find(delivery.destination).address_details %> - <%= @places.find(delivery.destination).city %> - <%= @places.find(delivery.destination).contact_person %></td>
 					<td><%= delivery.observations %></td>
 					<td><%= delivery.price %>€</td>
 					<td><%= delivery.delivery_status %></td>
