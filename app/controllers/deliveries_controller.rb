@@ -34,7 +34,10 @@ class DeliveriesController < ApplicationController
 			@origin = @delivery.places.create(name: params[:origenEmpresa], address: params[:origenDireccion], address_details: params[:origenDetalles], postal_code: params[:origenCP], city: params[:origenCiudad], phone: params[:origenTelefono], contact_person: params[:origenContacto])
 			@destiny = @delivery.places.create(name: params[:destinoEmpresa], address: params[:destinoDireccion], address_details: params[:destinoDetalles], postal_code: params[:destinoCP], city: params[:destinoCiudad], phone: params[:destinoTelefono], contact_person: params[:destinoContacto])
 			@vehicle = @delivery.vehicles.create(bastidor_matricula: params[:basmat], model: params[:modelo], brand: params[:marca], observations: params[:observaciones])
-			@delivery.update(document: params[:picture], origin: @origin.id, destination: @destiny.id, vehicle: @vehicle.id)
+			if params[:picture] != nil
+				@delivery.update(document: params[:picture])
+			end
+			@delivery.update(origin: @origin.id, destination: @destiny.id, vehicle: @vehicle.id)
 			NewJob.send_new_job_info(@client, @delivery, @vehicle, @origin, @destiny).deliver
 			redirect_to(client_delivery_path(@client, @delivery))
 		else
