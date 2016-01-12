@@ -24,7 +24,7 @@
 			<% total = 0 %>
 			<% @deliveriesfinal.each do |delivery| %>
 				<tr>
-					<td><%= delivery.client.name %> - <%= delivery.client.nif %></td>
+					<td><%= delivery.client.name %> -CIF: <%= delivery.client.nif %></td>
 					<td><%= @vehicles.find(delivery.vehicle).brand %> -<%= @vehicles.find(delivery.vehicle).model %></td>
 					<td><%= @vehicles.find(delivery.vehicle).bastidor_matricula %></td>
 					<td><%= @places.find(delivery.origin).name %> - <%= @places.find(delivery.origin).address %> - <%= @places.find(delivery.origin).address_details %> - <%= @places.find(delivery.origin).city %> - <%= @places.find(delivery.origin).contact_person %></td>

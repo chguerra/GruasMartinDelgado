@@ -4,7 +4,7 @@
 			<li class="collection-header"><h6><%= truck.matricula %> - <%= truck.marca %> - <%= truck.modelo %></h6></li>
 				<% @deliveries.each do |delivery| %>
 					<% if delivery.truck == truck.id %>
-						<li class="collection-item"><%= @vehicles.find_by(delivery_id: delivery.id).bastidor_matricula %> - <%= @vehicles.find_by(delivery_id: delivery.id).brand %> - <%= @vehicles.find_by(delivery_id: delivery.id).model %> - <%= @places.find(delivery.origin).city %> a <%= @places.find(delivery.destination).city %> - <%= delivery.client.name %> <%= link_to('Editar', edit_client_delivery_path(delivery.client.id, delivery.id)) %> </li>
+						<li class="collection-item green"><%= @vehicles.find_by(delivery_id: delivery.id).bastidor_matricula %> - <%= @vehicles.find_by(delivery_id: delivery.id).brand %> - <%= @vehicles.find_by(delivery_id: delivery.id).model %> - <%= @places.find(delivery.origin).city %> a <%= @places.find(delivery.destination).city %> - <%= delivery.client.name %> <%= link_to('Editar', edit_client_delivery_path(delivery.client.id, delivery.id)) %> </li>
 					<% end %>
 				<% end %>
 		</ul>
