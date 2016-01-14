@@ -5,7 +5,7 @@
 	<title>Nueva solicitud de transporte</title>
 </head>
 <body>
-	<h2>Prueba de envio de correos con datos</h2>
+	<h2>La empresa <%= @client.name %> autoriza a Martin Delgado a la retirada del siguiente vehículo:</h2>
 	<p>Fecha del pedido: <%= @delivery.created_at %></p>
 	<p>Cliente: <%= @client.name %></p>
 	<p>Persona de contacto: <%= @client.contact_person %></p>
