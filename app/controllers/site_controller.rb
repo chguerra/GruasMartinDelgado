@@ -1,9 +1,17 @@
+require 'pry'
+
 class SiteController < ApplicationController
 	def home
 		@deliveries = Delivery.where(delivery_status: "PENDIENTE")
 		@clients = Client.all
 		@trucks = Truck.all
 		@drivers = Driver.all
+
+	end
+
+	def clientuser
+		@clients = Client.all
+		@users = User.all
 	end
 
 	def customreport

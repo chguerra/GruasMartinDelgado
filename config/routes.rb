@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
+  
+  devise_for :users
+
   get "/" => "site#home"
+
+  get "/clientuser" => "site#clientuser"
 
   get "/pendientes" => "deliveries#pendientes"
 

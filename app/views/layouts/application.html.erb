@@ -24,8 +24,15 @@
 	
 		<nav>
     		<div class="nav-wrapper">
-      			<a class="brand-logo"><img id="logo" src="/logopresta.png"></a>
-      			
+      			<a class="brand-logo" href="/"><img id="logo" src="/logopresta.png"></a>
+      			<ul id="nav-mobile" class="right">
+                <% if user_signed_in? %>
+                <li>Conectado como: <%= current_user.email %></li>
+                <li><%= link_to 'Desconectarse', destroy_user_session_path, method: 'DELETE' %></li>
+                <% else %>
+                <li><%= link_to 'Iniciar sesion', new_user_session_path, method: 'GET' %></li>
+                <% end %>
+            </ul>
     		</div>
   		</nav>
 	
