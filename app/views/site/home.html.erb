@@ -150,6 +150,29 @@
 	<p>Acciones disponibles</p>
 	<a class="waves-effect waves-light btn green" href="/clients/<%= current_user.assigned_client %>/deliveries/new"> Nueva solicitud </a>
 	<h2>Listado de solicitudes</h2>
+	<% if @clientdeliveries.where(client_id: current_user.assigned_client).count > 0 %>
+	<table class="responsive-table">
+		<thead>
+			<tr>
+			<th>Vehiculo</th>
+			<th>Origen</th>
+			<th>Destino</th>
+			<th>Estado</th>
+			</tr>
+		</thead>
+		<% @clientdeliveries.where(client_id: current_user.assigned_client).each do |delivery| %>
+		<tr>
+			<td><%= @vehicles.find_by(id: delivery.vehicle).bastidor_matricula %> - <%= @vehicles.find_by(id: delivery.vehicle).brand %> - <%= @vehicles.find_by(id: delivery.vehicle).model %></td>
+			<td><%= @places.find(delivery.origin).name %> - <%= @places.find(delivery.origin).city %> - <%= @places.find(delivery.origin).postal_code %></td>
+			<td><%= @places.find(delivery.destination).name %> - <%= @places.find(delivery.destination).city %> - <%= @places.find(delivery.destination).postal_code %></td>
+			<td><%= delivery.delivery_status %>
+			 <% if delivery.delivery_status == "ENTREGADO" %>
+			 	<%= delivery.delivery_date %>
+			 <% end %>
+			 </td>
+		</tr>
+		<% end %>
+	<% end %>
 </div>
 <% end %>
 

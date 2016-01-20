@@ -14,6 +14,6 @@ class NewJob < ApplicationMailer
 		end
 		
 		mail(:to => 'asistenciamartindelgado@gmail.com',
-			:subject => 'Nueva solicitud de transporte')
+			:subject => 'Nueva solicitud de transporte #{vehicle.bastidor_matricula}')
 	end
 end
