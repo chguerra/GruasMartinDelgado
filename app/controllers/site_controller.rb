@@ -7,6 +7,7 @@ class SiteController < ApplicationController
 		@trucks = Truck.all
 		@drivers = Driver.all
 		@vehicles = Vehicle.all
+		@places = Place.all
 		@clientdeliveries = Delivery.all
 
 	end
