@@ -50,5 +50,7 @@ $secondary-color: color("red", "lighten-1") !default;
 
 .midcontent img {
 	border-radius: 25px;
-	
+	text-align: center;
+	margin: 0 auto;
+	width: 100%;
 }
