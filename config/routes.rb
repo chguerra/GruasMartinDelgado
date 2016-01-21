@@ -18,6 +18,8 @@ Rails.application.routes.draw do
 
   post "/deliveredreport" => "site#deliveredreport"
 
+  post "/patsea" => "site#patsea"
+
   resources :clients, only: [:update, :edit, :show, :new, :index, :create, :destroy] do
   	resources :deliveries, only: [ :update, :edit, :show, :new, :create, :destroy]
   end

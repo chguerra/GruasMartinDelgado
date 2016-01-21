@@ -17,6 +17,18 @@ class SiteController < ApplicationController
 		@users = User.all
 	end
 
+	def patsea
+		@filtered_vehiles = Vehicle.where("bastidor_matricula like ?", "%#{params[:basmat]}%" )
+		@deliveries = []
+		@filtered_vehiles.each do |t|
+			if Delivery.find(t.delivery_id)
+				@deliveries.push(Delivery.find(t.delivery_id))
+			end
+		end
+		@vehicles = Vehicle.all
+		@places = Place.all
+	end
+
 	def customreport
 
 		@deliveriesfinal = []
