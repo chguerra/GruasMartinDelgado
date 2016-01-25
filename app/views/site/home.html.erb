@@ -168,7 +168,12 @@
 			<td><%= @vehicles.find_by(id: delivery.vehicle).bastidor_matricula %> - <%= @vehicles.find_by(id: delivery.vehicle).brand %> - <%= @vehicles.find_by(id: delivery.vehicle).model %></td>
 			<td><%= @places.find(delivery.origin).name %> - <%= @places.find(delivery.origin).city %> - <%= @places.find(delivery.origin).postal_code %></td>
 			<td><%= @places.find(delivery.destination).name %> - <%= @places.find(delivery.destination).city %> - <%= @places.find(delivery.destination).postal_code %></td>
-			<td><%= delivery.delivery_status %>
+			<td>
+				<% if delivery.delivery_status == "PENDIENTE" %>
+					ASIGNADO
+					<% else %>
+			<%= delivery.delivery_status %>
+					<%end%>
 			 <% if delivery.delivery_status == "ENTREGADO" %>
 			 	<%= delivery.delivery_date %>
 			 <% end %>

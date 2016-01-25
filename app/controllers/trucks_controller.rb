@@ -14,6 +14,9 @@ class TrucksController < ApplicationController
 
 	def show
 		@truck = Truck.find(params[:id])
+		@deliveries = Delivery.where('truck = ? AND delivery_status = ?', params[:id], "CARGADO")
+		@places = Place.all
+		@vehicles = Vehicle.all
 	end
 
 	def destroy

@@ -7,6 +7,7 @@
 	<table class="responsive-table">
 		<thead>
 			<tr>
+				<th>NºPedido</th>
 				<th>Cliente</th>
 				<th>Mod/Mar</th>
 				<th>Bast/Mat</th>
@@ -24,6 +25,7 @@
 			<% total = 0 %>
 			<% @deliveriesfinal.each do |delivery| %>
 				<tr>
+					<td><%= delivery.id %></td>
 					<td><%= delivery.client.name %> -CIF: <%= delivery.client.nif %></td>
 					<td><%= @vehicles.find(delivery.vehicle).brand %> -<%= @vehicles.find(delivery.vehicle).model %></td>
 					<td><%= @vehicles.find(delivery.vehicle).bastidor_matricula %></td>

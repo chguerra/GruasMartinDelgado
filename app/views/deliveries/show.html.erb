@@ -1,5 +1,5 @@
 <div class="delivery">
-	<h5>Solicitud para cliente: <%= @client.name %> - CONFIRMADA</h5>
+	<h5>Solicitud Nº: <%= @delivery.id %> para cliente: <%= @client.name %> - CONFIRMADA</h5>
 	<h6>Informacion del vehículo - <a href="<%= @delivery.document.url(:original, false) %>"> Descarga autorizacion </a></h6>
 	<div class="row">
         <div class="col s12 m12">
