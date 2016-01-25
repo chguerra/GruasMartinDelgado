@@ -79,6 +79,6 @@ class DeliveriesController < ApplicationController
 	private
 
 	def delivery_params
-		params.require(:delivery).permit(:price, :driver_price, :truck, :driver, :delivery_status, :delivery_date)
+		params.require(:delivery).permit(:payment_status, :payment_date, :payment_method, :price, :driver_price, :truck, :driver, :delivery_status, :delivery_date)
 	end
 end
