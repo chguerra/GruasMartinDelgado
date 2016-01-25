@@ -26,9 +26,7 @@
 					<td><%= @places.find(delivery.destination).name %> - <%= @places.find(delivery.destination).address %> - <%= @places.find(delivery.destination).address_details %> - <%= @places.find(delivery.destination).city %> - <%= @places.find(delivery.destination).contact_person %></td>
 					<td><%= delivery.observations %></td>
 				</tr>
-				<% if delivery.price != nil %>
-				<% total = total + delivery.price %>
-				<% end %>
+				
 			<% end %>
 		</tbody>
 	</table>
