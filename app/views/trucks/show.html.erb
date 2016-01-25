@@ -12,11 +12,6 @@
 				<th>Origen</th>
 				<th>Destino</th>
 				<th>Observaciones</th>
-				<th>Precio</th>
-				<th>Estado</th>
-				<th>Fecha</th>
-				<th>Metodo de pago</th>
-				<th>Estado del pago</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -30,14 +25,6 @@
 					<td><%= @places.find(delivery.origin).name %> - <%= @places.find(delivery.origin).address %> - <%= @places.find(delivery.origin).address_details %> - <%= @places.find(delivery.origin).city %> - <%= @places.find(delivery.origin).contact_person %></td>
 					<td><%= @places.find(delivery.destination).name %> - <%= @places.find(delivery.destination).address %> - <%= @places.find(delivery.destination).address_details %> - <%= @places.find(delivery.destination).city %> - <%= @places.find(delivery.destination).contact_person %></td>
 					<td><%= delivery.observations %></td>
-					<td><%= delivery.price %>€</td>
-					<td><%= delivery.delivery_status %></td>
-					<td><% if delivery.delivery_status == "ENTREGADO" %>
-							<%= delivery.delivery_date %>
-						<% end %>
-					</td>
-					<td><%= delivery.payment_method %></td>
-					<td><%= delivery.payment_status %></td>
 				</tr>
 				<% if delivery.price != nil %>
 				<% total = total + delivery.price %>
