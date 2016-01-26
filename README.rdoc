@@ -1,28 +1,36 @@
-== README
+This is the code behind a personal project for a local Company, Gruas Martin Delgado, which activity is to transport vehicles in trucks from one point to another.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+The main goal is to make GMD clients to register on the webpage, after that they can register new deliveries and from the client's view of the web they can track this deliveries.
 
-Things you may want to cover:
+From the point of view of the administrator, you can manage the delivery's data, get custom reports and track the loads of the trucks.
 
-* Ruby version
+This is an alfa version of the webpage, and the only remarkable code you can fin here is a javascript function to take everydata from a HTML table to a Excel (xls) file.
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+This is the code:
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+$(document).ready(function() {
+    $("#btnExport").click(function(e) {
+        //getting values of current time for generating the file name
+        var dt = new Date();
+        var day = dt.getDate();
+        var month = dt.getMonth() + 1;
+        var year = dt.getFullYear();
+        var hour = dt.getHours();
+        var mins = dt.getMinutes();
+        var postfix = day + "." + month + "." + year + "_" + hour + "." + mins;
+        //creating a temporary HTML link element (they support setting file names)
+        var a = document.createElement('a');
+        //getting data from our div that contains the HTML table
+        var data_type = 'data:application/vnd.ms-excel';
+        var table_div = document.getElementById('dvData');
+        var table_html = table_div.outerHTML.replace(/ /g, '%20');
+        a.href = data_type + ', ' + table_html;
+        //setting the file name
+        a.download = 'exported_table_' + postfix + '.xls';
+        //triggering the function
+        a.click();
+        //just in case, prevent default behaviour
+        e.preventDefault();
+    });
+});
